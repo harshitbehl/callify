@@ -8,7 +8,7 @@ import "./App.scss";
 function App() {
   return (
     <div className="app">
-      <Header />
+      <Header logo="Callify" />
       <Main />
       <Footer />
     </div>

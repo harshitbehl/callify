@@ -1,4 +1,15 @@
+@import "variables";
+
 .footer {
   height: 10%;
-  border-top: 0.1rem solid grey;
+  border-top: 0.1rem solid rgb(189, 189, 189, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: $box-shadow;
+
+  &__text {
+    font-size: 1.8rem;
+    font-weight: 100;
+  }
 }
