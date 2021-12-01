@@ -19,9 +19,7 @@ function Phone() {
   return (
     <div className="phone">
       <div className="phone__header">
-        {/* <div>Edit</div> */}
         <h2 className="phone__header-text">{phoneHeader}</h2>
-        {/* <div>&#8942;</div> */}
       </div>
 
       <div className="phone__toggle-container">
