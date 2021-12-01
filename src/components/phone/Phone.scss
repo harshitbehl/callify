@@ -2,9 +2,99 @@
 
 .phone {
   height: 58rem;
-  width: 35rem;
+  width: 32rem;
   border: 0.8rem solid black;
   border-radius: 5rem;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  overflow: hidden;
+
+  &__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+
+    &-text {
+      font-size: 2.5rem;
+    }
+  }
+
+  &__toggle-container {
+    height: 5%;
+    display: flex;
+    border-radius: 5rem;
+    overflow: hidden;
+    margin: 0 2rem;
+    border: 0.1rem solid lightgrey;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+    .phone__toggle-left {
+      flex: 1;
+      text-align: center;
+      cursor: pointer;
+      background-color: whitesmoke;
+
+      & a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+      }
+
+      &:hover {
+        background-color: #e4e4e4;
+      }
+    }
+
+    .phone__toggle-right {
+      flex: 1;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      background-color: whitesmoke;
+
+      & a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+      }
+
+      &:hover {
+        background-color: #e4e4e4;
+      }
+    }
+  }
+
+  &__pages-container {
+    height: 70%;
+    padding: 3rem 2rem 0 2rem;
+  }
+
+  &__nav-container {
+    height: 15%;
+    border-radius: 5rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+
+    .phone__dialpad-icon {
+      border-radius: 50%;
+      width: 5rem;
+      height: 5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 0.1rem solid grey;
+      cursor: pointer;
+    }
+  }
 }
