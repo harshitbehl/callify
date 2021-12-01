@@ -1,0 +1,51 @@
+@import "variables";
+
+.callsListItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 1rem 0;
+  cursor: pointer;
+
+  &__avatar {
+    flex: 1;
+  }
+
+  &__info-container {
+    flex: 3;
+
+    & .callsListItem__name {
+      margin-bottom: 0.5rem;
+    }
+
+    & .callsListItem__name.missed {
+      color: red;
+    }
+
+    & .callsListItem__name.answered {
+      color: green;
+    }
+
+    & .callsListItem__name.voicemail {
+      color: orange;
+    }
+
+    & .callsListItem__info {
+      display: flex;
+
+      &-date {
+        font-size: 1.2rem;
+        margin-left: 0.5rem;
+        font-weight: 300;
+      }
+    }
+  }
+
+  &__icons {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+}

@@ -2,4 +2,12 @@
 
 .calls {
   height: 100%;
+  overflow: scroll;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  
 }

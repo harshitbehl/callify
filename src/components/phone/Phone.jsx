@@ -6,7 +6,7 @@ import {
   BiDialpad,
   BiUserCircle,
 } from "react-icons/bi";
-import { Routes, Route, Link, useLinkClickHandler } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import Calls from "../../pages/calls/Calls";
 import CallDetail from "../../pages/callDetail/CallDetail";
 import Archive from "../../pages/archive/Archive";
