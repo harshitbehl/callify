@@ -39,7 +39,7 @@ function Phone() {
       <div className="phone__pages-container">
         <Routes>
           <Route path="/calls" element={<Calls />} />
-          <Route path="/call" element={<CallDetail />} />
+          <Route path="/call/:id" element={<CallDetail />} />
           <Route path="/archive" element={<Archive />} />
         </Routes>
       </div>

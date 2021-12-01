@@ -4,10 +4,11 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 import { BsArchive } from "react-icons/bs";
 import { MdCallMade, MdCallReceived } from "react-icons/md";
 import moment from "moment";
+import { Link } from "react-router-dom";
 
 import "./CallsListItem.scss";
 
-function CallsListItem({ avatar, type, from, to, direction, date }) {
+function CallsListItem({ id, avatar, type, from, to, direction, date }) {
   return (
     <div className="callsListItem">
       <div className="callsListItem__avatar">
@@ -25,7 +26,9 @@ function CallsListItem({ avatar, type, from, to, direction, date }) {
         </div>
       </div>
       <div className="callsListItem__icons">
-        <AiOutlineInfoCircle style={{ cursor: "pointer" }} size="2rem" />
+        <Link to={`/call/${id}`}>
+          <AiOutlineInfoCircle style={{ cursor: "pointer" }} size="2rem" />
+        </Link>
         <BsArchive style={{ cursor: "pointer" }} size="2rem" />
       </div>
     </div>
