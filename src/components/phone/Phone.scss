@@ -33,7 +33,7 @@
       flex: 1;
       text-align: center;
       cursor: pointer;
-      background-color: whitesmoke;
+      background-color: #ddd;
 
       & a {
         display: flex;
@@ -45,6 +45,10 @@
 
       &:hover {
         background-color: #e4e4e4;
+      }
+
+      &.active {
+        background-color: white;
       }
     }
 
@@ -55,7 +59,7 @@
       justify-content: center;
       align-items: center;
       cursor: pointer;
-      background-color: whitesmoke;
+      background-color: #ddd;
 
       & a {
         display: flex;
@@ -67,6 +71,10 @@
 
       &:hover {
         background-color: #e4e4e4;
+      }
+
+      &.active {
+        background-color: white;
       }
     }
   }

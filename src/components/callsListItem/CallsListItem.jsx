@@ -5,10 +5,21 @@ import { BsArchive } from "react-icons/bs";
 import { MdCallMade, MdCallReceived } from "react-icons/md";
 import moment from "moment";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 import "./CallsListItem.scss";
 
 function CallsListItem({ id, avatar, type, from, to, direction, date }) {
+  const archiveHandler = async () => {
+    try {
+      await axios.post(`https://aircall-job.herokuapp.com/activities/${id}`, {
+        is_archived: true,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="callsListItem">
       <div className="callsListItem__avatar">
@@ -29,7 +40,11 @@ function CallsListItem({ id, avatar, type, from, to, direction, date }) {
         <Link to={`/call/${id}`}>
           <AiOutlineInfoCircle style={{ cursor: "pointer" }} size="2rem" />
         </Link>
-        <BsArchive style={{ cursor: "pointer" }} size="2rem" />
+        <BsArchive
+          style={{ cursor: "pointer" }}
+          size="2rem"
+          onClick={archiveHandler}
+        />
       </div>
     </div>
   );

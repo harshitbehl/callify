@@ -8,6 +8,7 @@ function Archive() {
   const [calls, setCalls] = useState([]);
 
   useEffect(() => {
+    const source = axios.CancelToken.source();
     const getAllCalls = async () => {
       try {
         const res = await axios.get(
@@ -19,13 +20,16 @@ function Archive() {
       }
     };
     getAllCalls();
-  }, []);
+    return () => {
+      source.cancel("Previous Request Cancelled...");
+    };
+  }, [calls]);
 
   return (
     <div className="archive">
       {calls.map(
         (call) =>
-          call.is_archived || (
+          call.is_archived && (
             <CallsListItem
               key={call.id}
               id={call.id}

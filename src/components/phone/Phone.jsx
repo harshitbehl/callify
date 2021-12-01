@@ -1,20 +1,24 @@
 import React, { useState } from "react";
 import { IoCallOutline } from "react-icons/io5";
 import { BsArchive } from "react-icons/bs";
-import {
-  BiMessageRoundedDetail,
-  BiDialpad,
-  BiUserCircle,
-} from "react-icons/bi";
+import { BiMessageRoundedDetail, BiDialpad } from "react-icons/bi";
+import { GrPowerReset } from "react-icons/gr";
 import { Routes, Route, Link } from "react-router-dom";
 import Calls from "../../pages/calls/Calls";
 import CallDetail from "../../pages/callDetail/CallDetail";
 import Archive from "../../pages/archive/Archive";
+import axios from "axios";
 
 import "./Phone.scss";
 
 function Phone() {
   const [phoneHeader, setPhoneHeader] = useState("Callify");
+  const [pageToggleR, setPageToggleR] = useState(false);
+  const [pageToggleL, setPageToggleL] = useState(true);
+
+  const resetHandler = async () => {
+    const res = await axios.get("https://aircall-job.herokuapp.com/reset");
+  };
 
   return (
     <div className="phone">
@@ -23,14 +27,28 @@ function Phone() {
       </div>
 
       <div className="phone__toggle-container">
-        <div className="phone__toggle-left">
-          <Link to="/calls" onClick={() => setPhoneHeader("Calls")}>
+        <div className={`phone__toggle-left ${pageToggleL ? "active" : ""}`}>
+          <Link
+            to="/calls"
+            onClick={() => {
+              setPhoneHeader("Calls");
+              setPageToggleL(true);
+              setPageToggleR(false);
+            }}
+          >
             All
           </Link>
         </div>
 
-        <div className="phone__toggle-right">
-          <Link to="/archive" onClick={() => setPhoneHeader("Archive")}>
+        <div className={`phone__toggle-right ${pageToggleR ? "active" : ""}`}>
+          <Link
+            to="/archive"
+            onClick={() => {
+              setPhoneHeader("Archive");
+              setPageToggleL(false);
+              setPageToggleR(true);
+            }}
+          >
             Archive
           </Link>
         </div>
@@ -38,6 +56,7 @@ function Phone() {
 
       <div className="phone__pages-container">
         <Routes>
+          <Route path="/" element={<Calls />} />
           <Route path="/calls" element={<Calls />} />
           <Route path="/call/:id" element={<CallDetail />} />
           <Route path="/archive" element={<Archive />} />
@@ -46,15 +65,27 @@ function Phone() {
 
       <div className="phone__nav-container">
         <Link to="/calls">
-          <IoCallOutline size="2.5rem" style={{ cursor: "pointer" }} />
+          <IoCallOutline
+            size="2.5rem"
+            style={{ cursor: "pointer" }}
+            onClick={() => setPhoneHeader("Calls")}
+          />
         </Link>
         <BiMessageRoundedDetail size="2.5rem" style={{ cursor: "pointer" }} />
         <div className="phone__dialpad-icon">
           <BiDialpad size="2.8rem" />
         </div>
-        <BiUserCircle size="2.5rem" style={{ cursor: "pointer" }} />
+        <GrPowerReset
+          size="2.5rem"
+          style={{ cursor: "pointer" }}
+          onClick={resetHandler}
+        />
         <Link to="/archive">
-          <BsArchive size="2.5rem" style={{ cursor: "pointer" }} />
+          <BsArchive
+            size="2.5rem"
+            style={{ cursor: "pointer" }}
+            onClick={() => setPhoneHeader("Archive")}
+          />
         </Link>
       </div>
     </div>

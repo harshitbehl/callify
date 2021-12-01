@@ -6,9 +6,9 @@ import "./Calls.scss";
 
 function Calls() {
   const [calls, setCalls] = useState([]);
-  const [archived, setArchived] = useState(false);
 
   useEffect(() => {
+    const source = axios.CancelToken.source();
     const getAllCalls = async () => {
       try {
         const res = await axios.get(
@@ -20,13 +20,17 @@ function Calls() {
       }
     };
     getAllCalls();
-  }, []);
+
+    return () => {
+      source.cancel("Previous Request Cancelled...");
+    };
+  }, [calls]);
 
   return (
     <div className="calls">
       {calls.map(
         (call) =>
-          archived || (
+          !call.is_archived && (
             <CallsListItem
               key={call.id}
               id={call.id}
@@ -36,7 +40,6 @@ function Calls() {
               from={call.from}
               to={call.to}
               date={new Date(call.created_at)}
-              isArchive={call.is_archived}
             />
           )
       )}
