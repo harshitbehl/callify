@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { IoCallOutline } from "react-icons/io5";
 import { BsArchive } from "react-icons/bs";
 import { BiMessageRoundedDetail, BiDialpad } from "react-icons/bi";
-import { GrPowerReset } from "react-icons/gr";
+import { MdOutlineLoop } from "react-icons/md";
 import { Routes, Route, Link } from "react-router-dom";
 import Calls from "../../pages/calls/Calls";
 import CallDetail from "../../pages/callDetail/CallDetail";
@@ -17,7 +17,7 @@ function Phone() {
   const [pageToggleL, setPageToggleL] = useState(true);
 
   const resetHandler = async () => {
-    const res = await axios.get("https://aircall-job.herokuapp.com/reset");
+    await axios.get("https://aircall-job.herokuapp.com/reset");
   };
 
   return (
@@ -67,23 +67,26 @@ function Phone() {
         <Link to="/calls">
           <IoCallOutline
             size="2.5rem"
-            style={{ cursor: "pointer" }}
+            style={{ cursor: "pointer", color: "#03A9F4" }}
             onClick={() => setPhoneHeader("Calls")}
           />
         </Link>
-        <BiMessageRoundedDetail size="2.5rem" style={{ cursor: "pointer" }} />
-        <div className="phone__dialpad-icon">
-          <BiDialpad size="2.8rem" />
-        </div>
-        <GrPowerReset
+        <BiMessageRoundedDetail
           size="2.5rem"
-          style={{ cursor: "pointer" }}
+          style={{ cursor: "pointer", color: "#03A9F4" }}
+        />
+        <div className="phone__dialpad-icon">
+          <BiDialpad size="2.8rem" style={{ color: "white" }} />
+        </div>
+        <MdOutlineLoop
+          size="2.5rem"
+          style={{ cursor: "pointer", color: "#03A9F4" }}
           onClick={resetHandler}
         />
         <Link to="/archive">
           <BsArchive
             size="2.5rem"
-            style={{ cursor: "pointer" }}
+            style={{ cursor: "pointer", color: "#03A9F4" }}
             onClick={() => setPhoneHeader("Archive")}
           />
         </Link>

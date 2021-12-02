@@ -38,10 +38,13 @@ function CallsListItem({ id, avatar, type, from, to, direction, date }) {
       </div>
       <div className="callsListItem__icons">
         <Link to={`/call/${id}`}>
-          <AiOutlineInfoCircle style={{ cursor: "pointer" }} size="2rem" />
+          <AiOutlineInfoCircle
+            style={{ cursor: "pointer", color: "#0277BD" }}
+            size="2rem"
+          />
         </Link>
         <BsArchive
-          style={{ cursor: "pointer" }}
+          style={{ cursor: "pointer", color: "#0277BD" }}
           size="2rem"
           onClick={archiveHandler}
         />

@@ -1,4 +1,5 @@
 @import "variables";
+@import "media-queries";
 
 .phone {
   height: 58rem;
@@ -8,6 +9,13 @@
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
   overflow: hidden;
+
+  @include phone {
+    height: 100vh;
+    width: 100vw;
+    border-radius: unset;
+    border: unset;
+  }
 
   &__header {
     display: flex;
@@ -49,6 +57,7 @@
 
       &.active {
         background-color: white;
+        color: $secondary-color;
       }
     }
 
@@ -75,6 +84,7 @@
 
       &.active {
         background-color: white;
+        color: $secondary-color;
       }
     }
   }
@@ -94,6 +104,10 @@
     align-items: center;
     padding: 0 2rem;
 
+    @include phone {
+      border-radius: 5rem 5rem 0 0;
+    }
+
     .phone__dialpad-icon {
       border-radius: 50%;
       width: 5rem;
@@ -103,6 +117,7 @@
       align-items: center;
       border: 0.1rem solid grey;
       cursor: pointer;
+      background-color: $secondary-color;
     }
   }
 }
