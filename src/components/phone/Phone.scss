@@ -118,6 +118,20 @@
       border: 0.1rem solid grey;
       cursor: pointer;
       background-color: $secondary-color;
+      animation-name: dialpad;
+      animation-duration: 0.8s;
+      animation-direction: alternate;
+      animation-iteration-count: 4;
+      animation-timing-function: linear;
+    }
+
+    @keyframes dialpad {
+      from {
+        transform: scale(1);
+      }
+      to {
+        transform: scale(1.2);
+      }
     }
   }
 }
